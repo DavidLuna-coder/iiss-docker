@@ -1,0 +1,18 @@
+services:
+  drupal:
+    image: "drupal"
+    ports:
+      - "81:80"
+    volumes:
+      - volumenDocker:/var/www/html/sites
+    restart: always 
+  mysql:
+    image: "mysql"
+    environment:
+      - MYSQL_DATABASE=drupal
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    restart: always
+volumes:
+  volumenDocker:

@@ -1,0 +1,15 @@
+services:
+  wordpress:
+    image: "wordpress"
+    ports:
+      - "82:80"
+    networks:
+      - redDocker
+  mariadb:
+    image: mariadb
+    networks:
+      - redDocker
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+networks:
+  redDocker:
